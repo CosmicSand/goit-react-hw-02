@@ -32,6 +32,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("review", JSON.stringify(review));
   }, [review]);
+
   return (
     <>
       <Description />
