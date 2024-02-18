@@ -22,10 +22,11 @@ function App() {
     function updateReview() {
       setReview({
         ...review,
-        [e.target.name]: e.target.name,
+        [e.target.name]: review[e.target.name] + 1,
       });
     }
-    e.target.name !== "reset" ? updateReview : resetReview;
+    console.log(e.target.name);
+    e.target.name !== "reset" ? updateReview() : resetReview();
   }
 
   useEffect(() => {});

@@ -9,9 +9,9 @@ function Options({ value, onUpdate }) {
         Neutral
       </button>
       <button name="bad" onClick={onUpdate}>
-        Bab
+        Bad
       </button>
-      {totalValue && (
+      {totalValue !== 0 && (
         <button name="reset" onClick={onUpdate}>
           Reset
         </button>
