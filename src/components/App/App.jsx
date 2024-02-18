@@ -5,10 +5,16 @@ import Feedback from "../Feedback/Feedback";
 import "./App.css";
 
 function App() {
-  const [review, setReview] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [review, setReview] = useState(() => {
+    if (localStorage.getItem("review") == !null) {
+      return JSON.parse(localStorage.getItem("review"));
+    } else {
+      return {
+        good: 0,
+        neutral: 0,
+        bad: 0,
+      };
+    }
   });
 
   function handleReview(e) {
@@ -25,11 +31,13 @@ function App() {
         [e.target.name]: review[e.target.name] + 1,
       });
     }
-    console.log(e.target.name);
+
     e.target.name !== "reset" ? updateReview() : resetReview();
   }
 
-  useEffect(() => {});
+  useEffect(() => {
+    localStorage.setItem("review", JSON.stringify(review));
+  }, [review]);
 
   return (
     <>
