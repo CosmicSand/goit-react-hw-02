@@ -5,40 +5,33 @@ import Feedback from "../Feedback/Feedback";
 import "./App.css";
 
 function App() {
+  const zeroReview = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
   const [review, setReview] = useState(() => {
-    if (localStorage.getItem("review") == !null) {
-      return JSON.parse(localStorage.getItem("review"));
+    if (localStorage.getItem("review") === null) {
+      return zeroReview;
     } else {
-      return {
-        good: 0,
-        neutral: 0,
-        bad: 0,
-      };
+      return JSON.parse(localStorage.getItem("review"));
     }
   });
 
   function handleReview(e) {
-    function resetReview() {
-      setReview({
-        good: 0,
-        neutral: 0,
-        bad: 0,
-      });
-    }
-    function updateReview() {
+    if (e.target.name === "reset") {
+      setReview(zeroReview);
+    } else {
       setReview({
         ...review,
         [e.target.name]: review[e.target.name] + 1,
       });
     }
-
-    e.target.name !== "reset" ? updateReview() : resetReview();
   }
 
   useEffect(() => {
     localStorage.setItem("review", JSON.stringify(review));
   }, [review]);
-
   return (
     <>
       <Description />
