@@ -1,5 +1,5 @@
-function Options({ value, onUpdate }) {
-  const totalValue = value.good + value.neutral + value.bad;
+function Options({ value: { good, neutral, bad }, onUpdate }) {
+  const total = good + neutral + bad;
   return (
     <>
       <button name="good" onClick={onUpdate}>
@@ -11,7 +11,7 @@ function Options({ value, onUpdate }) {
       <button name="bad" onClick={onUpdate}>
         Bad
       </button>
-      {totalValue !== 0 && (
+      {total !== 0 && (
         <button name="reset" onClick={onUpdate}>
           Reset
         </button>
