@@ -1,10 +1,22 @@
-function Options({ onUpdate, children }) {
-  const btnNameAtribute = children.toLowerCase();
+import Button from "../Button/Button";
+
+function Options({ onUpdate, total }) {
   return (
     <>
-      <button name={btnNameAtribute} onClick={onUpdate}>
-        {children}
-      </button>
+      <Button onUpdate={onUpdate} total={total}>
+        Good
+      </Button>
+      <Button onUpdate={onUpdate} total={total}>
+        Neutral
+      </Button>
+      <Button onUpdate={onUpdate} total={total}>
+        Bad
+      </Button>
+      {total !== 0 && (
+        <Button onUpdate={onUpdate} total={total}>
+          Reset
+        </Button>
+      )}
     </>
   );
 }

@@ -42,20 +42,7 @@ function App() {
   return (
     <>
       <Description />
-      <Options onUpdate={handleReview} total={total}>
-        Good
-      </Options>
-      <Options onUpdate={handleReview} total={total}>
-        Neutral
-      </Options>
-      <Options onUpdate={handleReview} total={total}>
-        Bad
-      </Options>
-      {total !== 0 && (
-        <Options onUpdate={handleReview} total={total}>
-          Reset
-        </Options>
-      )}
+      <Options onUpdate={handleReview} total={total} />
       {total === 0 ? (
         <Notification />
       ) : (
