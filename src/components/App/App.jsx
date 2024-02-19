@@ -42,17 +42,17 @@ function App() {
   return (
     <>
       <Description />
-      <Options value={review} onUpdate={handleReview} total={total}>
+      <Options onUpdate={handleReview} total={total}>
         Good
       </Options>
-      <Options value={review} onUpdate={handleReview} total={total}>
+      <Options onUpdate={handleReview} total={total}>
         Neutral
       </Options>
-      <Options value={review} onUpdate={handleReview} total={total}>
+      <Options onUpdate={handleReview} total={total}>
         Bad
       </Options>
       {total !== 0 && (
-        <Options value={review} onUpdate={handleReview} total={total}>
+        <Options onUpdate={handleReview} total={total}>
           Reset
         </Options>
       )}
