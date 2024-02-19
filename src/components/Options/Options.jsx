@@ -1,21 +1,10 @@
-function Options({ value: { good, neutral, bad }, onUpdate }) {
-  const total = good + neutral + bad;
+function Options({ onUpdate, children }) {
+  const btnNameAtribute = children.toLowerCase();
   return (
     <>
-      <button name="good" onClick={onUpdate}>
-        Good
+      <button name={btnNameAtribute} onClick={onUpdate}>
+        {children}
       </button>
-      <button name="neutral" onClick={onUpdate}>
-        Neutral
-      </button>
-      <button name="bad" onClick={onUpdate}>
-        Bad
-      </button>
-      {total !== 0 && (
-        <button name="reset" onClick={onUpdate}>
-          Reset
-        </button>
-      )}
     </>
   );
 }
